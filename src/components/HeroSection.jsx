@@ -12,18 +12,16 @@ export const HeroSection = () => {
             <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
-              Pedro
+              Nitesh
             </span>
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
               {" "}
-              Machado
+              Mishra
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional.
+           Passionate full-stack developer with expertise in modern web technologies including React.js, Node.js, and database management. Experienced in building end-to-end applications from responsive front-end interfaces to robust backend systems. Skilled in creating user-centric solutions with clean code practices .
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

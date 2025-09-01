@@ -3,32 +3,42 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Hotel Booking Platform",
+    description: "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
+    image: "/projects/HotelBooking.png",
+    tags: ["Reactjs", "Nailwindcss", "Nodejs", "Expressjs", "mongodb"],
+    demoUrl: "https://hotel-booking-beta-ochre.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/Hotel-booking",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Expense Tracker",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A modern expense tracking application that helps users monitor their spending habits and manage their budget effectively...",
+    image: "/projects/Expense.png",
+    tags: ["Reactjs", "Nailwindcss", "Nodejs", "Expressjs", "mongodb"],
+    demoUrl: "https://expense-tracker-sigma-lime-14.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/Expense-Tracker",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Virtual R",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A modern, responsive landing page for VR development tools built with React.js and Tailwind CSS. Features sleek dark theme design, smooth animations, and professional layout showcasing VR build tools for developers.",
+    image: "/projects/virtual.png",
+    tags: ["React", "tailwindcss"],
+    demoUrl: "https://virtual-r-beta-seven.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/virtualR",
+  },
+  {
+    id: 3,
+    title: "Vastuspaze",
+    description:
+      "Professional home renovation services landing page built with React.js and Tailwind CSS. Features clean, modern design with elegant typography, responsive layout, and compelling visual elements to showcase expert renovation and interior design services.",
+    image: "/projects/Vastu.png",
+    tags: ["React", "tailwindcss"],
+    demoUrl: "https://vastuspaze-steel.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/vastuspaze",
   },
 ];
 
@@ -100,7 +110,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/nitesh45176"
           >
             Check My Github <ArrowRight size={16} />
           </a>
