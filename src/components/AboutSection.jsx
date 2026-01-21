@@ -11,21 +11,26 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Passionate Web Developer
-            </h3>
+            <h3 className="text-2xl font-semibold">Passionate Web Developer</h3>
 
             <p className="text-muted-foreground">
-              With over 8 months of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
+              I’m a self-driven web developer with hands-on experience building
+              real-world full-stack applications using React, Node.js, Express,
+              and MongoDB. I enjoy turning ideas into functional, user-friendly
+              web experiences and writing clean, maintainable code. Over the
+              past months, I’ve worked on projects like Taskora, expense trackers, hotel
+              booking systems, authentication flows, and dashboards, which
+              helped me understand how front-end and back-end systems work
+              together in production-level applications.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
+               I’m constantly
+              improving my skills, exploring better coding practices, and
+              learning how to build scalable, secure, and performance-focused
+              applications. My goal is to grow as a developer, contribute to
+              meaningful projects, and build products that solve real problems.
+              Currently open to internships and junior developer opportunities.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -33,8 +38,6 @@ export const AboutSection = () => {
                 {" "}
                 Get In Touch
               </a>
-
-             
             </div>
           </div>
 
