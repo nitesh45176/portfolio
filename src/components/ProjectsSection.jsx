@@ -3,6 +3,15 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "BugVault",
+    description: "BugVault is a developer memory system that helps track bugs, decisions, and their root causes to prevent knowledge loss over time",
+    image: "/projects/bugvault.png",
+    tags: ["Nextjs", "Typescript", "PostgreSQL", "PrismaORM"],
+    demoUrl: "https://bugvault.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/BugVault",
+  },
+  {
+    id: 2,
     title: "Taskora",
     description: "A MERN-based task execution platform where users post tasks and runners complete them securely.",
     image: "/projects/taskora.png",
@@ -11,7 +20,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Taskora",
   },
   {
-    id: 2,
+    id: 3,
     title: "Hotel Booking Platform",
     description: "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
     image: "/projects/HotelBooking.png",
@@ -20,7 +29,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Hotel-booking",
   },
   {
-    id: 3,
+    id: 4,
     title: "Expense Tracker",
     description:
       "A modern expense tracking application that helps users monitor their spending habits and manage their budget effectively...",
@@ -30,7 +39,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Expense-Tracker",
   },
   {
-    id: 4,
+    id: 5,
     title: "Virtual R",
     description:
       "A modern, responsive landing page for VR development tools built with React.js and Tailwind CSS. Features sleek dark theme design, smooth animations, and professional layout showcasing VR build tools for developers.",
@@ -40,7 +49,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/virtualR",
   },
   {
-    id: 5,
+    id: 6,
     title: "Vastuspaze",
     description:
       "Professional home renovation services landing page built with React.js and Tailwind CSS. Features clean, modern design with elegant typography, responsive layout, and compelling visual elements to showcase expert renovation and interior design services.",
