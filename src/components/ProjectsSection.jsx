@@ -3,6 +3,15 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "ResonoAI",
+    description: "Built a production-ready AI voice platform enabling text-to-speech and voice cloning with secure multi-tenant architecture and SaaS features.",
+    image: "/projects/Resono.png",
+    tags: ["Nextjs", "Typescript", "PostgreSQL", "PrismaORM", "tRPC", "Cloudfare R2","Clerk"],
+    demoUrl: "https://resonoai-production.up.railway.app/",
+    githubUrl: "https://github.com/nitesh45176/ResonoAI",
+  },
+  {
+    id: 2,
     title: "BugVault",
     description: "BugVault is a developer memory system that helps track bugs, decisions, and their root causes to prevent knowledge loss over time",
     image: "/projects/bugvault.png",
@@ -11,7 +20,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/BugVault",
   },
   {
-    id: 2,
+    id: 3,
     title: "Taskora",
     description: "A MERN-based task execution platform where users post tasks and runners complete them securely.",
     image: "/projects/taskora.png",
@@ -20,7 +29,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Taskora",
   },
   {
-    id: 3,
+    id: 4,
     title: "Hotel Booking Platform",
     description: "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
     image: "/projects/HotelBooking.png",
@@ -29,7 +38,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Hotel-booking",
   },
   {
-    id: 4,
+    id: 5,
     title: "Expense Tracker",
     description:
       "A modern expense tracking application that helps users monitor their spending habits and manage their budget effectively...",
@@ -39,7 +48,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Expense-Tracker",
   },
   {
-    id: 5,
+    id: 6,
     title: "Virtual R",
     description:
       "A modern, responsive landing page for VR development tools built with React.js and Tailwind CSS. Features sleek dark theme design, smooth animations, and professional layout showcasing VR build tools for developers.",
@@ -49,7 +58,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/virtualR",
   },
   {
-    id: 6,
+    id: 7,
     title: "Vastuspaze",
     description:
       "Professional home renovation services landing page built with React.js and Tailwind CSS. Features clean, modern design with elegant typography, responsive layout, and compelling visual elements to showcase expert renovation and interior design services.",
