@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight, Download } from "lucide-react";
 
 export const HeroSection = () => {
   return (
@@ -20,13 +20,26 @@ export const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-           Passionate full-stack developer with expertise in modern web technologies including React.js, Node.js, and database management. Experienced in building end-to-end applications from responsive front-end interfaces to robust backend systems. Skilled in creating user-centric solutions with clean code practices .
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+            Passionate full-stack developer with expertise in modern web
+            technologies including React.js, Node.js, and database management.
+            Experienced in building end-to-end applications from responsive
+            front-end interfaces to robust backend systems. Skilled in creating
+            user-centric solutions with clean code practices.
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Work
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#projects" className="cosmic-button flex items-center gap-2">
+              View My Work <ArrowRight size={16} />
+            </a>
+
+            <a
+              href="/resume/NITESH_CV_3.pdf"
+              download="Nitesh_Kumar_Mishra_Resume.pdf"
+              className="cosmic-button flex items-center gap-2"
+            >
+              <Download size={16} />
+              Download Resume
             </a>
           </div>
         </div>

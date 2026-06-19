@@ -1,44 +1,93 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
+  
   {
     id: 1,
+    title: "ResearchAI",
+    description:
+      "Built a multi-agent AI research platform that autonomously searches, analyzes, and generates structured research reports using LangGraph, Tavily Search, and Groq LLMs.",
+    image: "/projects/researchai.png",
+    tags: [
+      "Python",
+      "FastAPI",
+      "LangChain",
+      "LangGraph",
+      "Groq",
+      "Tavily",
+      "Next.js",
+    ],
+    demoUrl: "https://multi-agent-system-puce-psi.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/ResearchAI",
+  },
+  {
+    id: 2,
+    title: "NeuraAI",
+    description:
+      "Developed an AI meeting assistant for multilingual transcription, summarization, action-item extraction, and RAG-based question answering over meeting transcripts.",
+    image: "/projects/neuraai.png",
+    tags: [
+      "Python",
+      "FastAPI",
+      "Whisper",
+      "Sarvam AI",
+      "ChromaDB",
+      "RAG",
+      "LLM APIs",
+    ],
+    demoUrl: "https://neura-ai-six.vercel.app/",
+    githubUrl: "https://github.com/nitesh45176/NeuraAI",
+  },
+  {
+    id: 3,
     title: "ResonoAI",
-    description: "Built a production-ready AI voice platform enabling text-to-speech and voice cloning with secure multi-tenant architecture and SaaS features.",
+    description:
+      "Built a production-ready AI voice platform enabling text-to-speech and voice cloning with secure multi-tenant architecture and SaaS features.",
     image: "/projects/Resono.png",
-    tags: ["Nextjs", "Typescript", "PostgreSQL", "PrismaORM", "tRPC", "Cloudfare R2","Clerk"],
+    tags: [
+      "Nextjs",
+      "Typescript",
+      "PostgreSQL",
+      "PrismaORM",
+      "tRPC",
+      "Cloudfare R2",
+      "Clerk",
+    ],
     demoUrl: "https://resonoai-production.up.railway.app/",
     githubUrl: "https://github.com/nitesh45176/ResonoAI",
   },
   {
-    id: 2,
+    id: 4,
     title: "BugVault",
-    description: "BugVault is a developer memory system that helps track bugs, decisions, and their root causes to prevent knowledge loss over time",
+    description:
+      "BugVault is a developer memory system that helps track bugs, decisions, and their root causes to prevent knowledge loss over time",
     image: "/projects/bugvault.png",
     tags: ["Nextjs", "Typescript", "PostgreSQL", "PrismaORM"],
     demoUrl: "https://bugvault.vercel.app/",
     githubUrl: "https://github.com/nitesh45176/BugVault",
   },
   {
-    id: 3,
+    id: 5,
     title: "Taskora",
-    description: "A MERN-based task execution platform where users post tasks and runners complete them securely.",
+    description:
+      "A MERN-based task execution platform where users post tasks and runners complete them securely.",
     image: "/projects/taskora.png",
     tags: ["Reactjs", "Tailwindcss", "Nodejs", "Expressjs", "mongodb"],
     demoUrl: "https://taskora-ygjk.vercel.app/",
     githubUrl: "https://github.com/nitesh45176/Taskora",
   },
   {
-    id: 4,
+    id: 6,
     title: "Hotel Booking Platform",
-    description: "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
+    description:
+      "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
     image: "/projects/HotelBooking.png",
     tags: ["Reactjs", "Tailwindcss", "Nodejs", "Expressjs", "mongodb"],
     demoUrl: "https://hotel-booking-beta-ochre.vercel.app/",
     githubUrl: "https://github.com/nitesh45176/Hotel-booking",
   },
   {
-    id: 5,
+    id: 7,
     title: "Expense Tracker",
     description:
       "A modern expense tracking application that helps users monitor their spending habits and manage their budget effectively...",
@@ -48,7 +97,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/Expense-Tracker",
   },
   {
-    id: 6,
+    id: 8,
     title: "Virtual R",
     description:
       "A modern, responsive landing page for VR development tools built with React.js and Tailwind CSS. Features sleek dark theme design, smooth animations, and professional layout showcasing VR build tools for developers.",
@@ -58,7 +107,7 @@ const projects = [
     githubUrl: "https://github.com/nitesh45176/virtualR",
   },
   {
-    id: 7,
+    id: 9,
     title: "Vastuspaze",
     description:
       "Professional home renovation services landing page built with React.js and Tailwind CSS. Features clean, modern design with elegant typography, responsive layout, and compelling visual elements to showcase expert renovation and interior design services.",
