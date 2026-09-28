@@ -9,7 +9,7 @@ export const HeroSection = () => {
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
+            <span className="opacity-0 animate-fade-in"> Hi, I&apos;m</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
               Nitesh
@@ -21,11 +21,8 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Passionate full-stack developer with expertise in modern web
-            technologies including React.js, Node.js, and database management.
-            Experienced in building end-to-end applications from responsive
-            front-end interfaces to robust backend systems. Skilled in creating
-            user-centric solutions with clean code practices.
+            Generative AI &amp; Backend Engineer building multi-agent, RAG, and
+            LLM-powered applications with Python and FastAPI.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -34,7 +31,7 @@ export const HeroSection = () => {
             </a>
 
             <a
-              href="/resume/NITESH_CV_3.pdf"
+              href="/resume/NITESH_CV_AI.pdf"
               download="Nitesh_Kumar_Mishra_Resume.pdf"
               className="cosmic-button flex items-center gap-2"
             >

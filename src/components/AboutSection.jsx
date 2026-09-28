@@ -11,26 +11,20 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">Passionate Web Developer</h3>
+            <h3 className="text-2xl font-semibold">Agentic AI &amp; Backend Engineer</h3>
 
             <p className="text-muted-foreground">
-              I’m a self-driven web developer with hands-on experience building
-              real-world full-stack applications using React, Node.js, Express,
-              and MongoDB. I enjoy turning ideas into functional, user-friendly
-              web experiences and writing clean, maintainable code. Over the
-              past months, I’ve worked on projects like Taskora, expense trackers, hotel
-              booking systems, authentication flows, and dashboards, which
-              helped me understand how front-end and back-end systems work
-              together in production-level applications.
+              Agentic AI &amp; Backend Engineer building multi-agent, RAG, and
+              LLM-powered applications with Python and FastAPI. I focus on
+              practical AI systems, reliable APIs, and the data workflows that
+              make applications useful in production.
             </p>
 
             <p className="text-muted-foreground">
-               I’m constantly
-              improving my skills, exploring better coding practices, and
-              learning how to build scalable, secure, and performance-focused
-              applications. My goal is to grow as a developer, contribute to
-              meaningful projects, and build products that solve real problems.
-              Currently open to internships and junior developer opportunities.
+              My work spans agent orchestration, retrieval-augmented generation,
+              computer vision, and backend engineering with FastAPI and
+              PostgreSQL. I enjoy turning complex requirements into clear,
+              maintainable systems and thoughtfully built user experiences.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -48,10 +42,10 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
+                  <h4 className="font-semibold text-lg">Agentic AI Systems</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
+                    Building multi-agent, RAG, and multimodal applications with
+                    modern LLM tooling.
                   </p>
                 </div>
               </div>
@@ -62,10 +56,10 @@ export const AboutSection = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                  <h4 className="font-semibold text-lg">Backend Engineering</h4>
                   <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
+                    Developing APIs, data models, and integrations for reliable
+                    application workflows.
                   </p>
                 </div>
               </div>
@@ -77,10 +71,10 @@ export const AboutSection = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
+                  <h4 className="font-semibold text-lg">Applied Computer Vision</h4>
                   <p className="text-muted-foreground">
-                    Leading projects from conception to completion with agile
-                    methodologies.
+                    Working with visual data pipelines for detection, assessment,
+                    and actionable results.
                   </p>
                 </div>
               </div>

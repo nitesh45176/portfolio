@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle"; // ✅ import your toggl
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -37,7 +38,7 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Nitesh's </span>{" "}
+            <span className="text-glow text-foreground"> Nitesh&apos;s </span>{" "}
             Portfolio
           </span>
         </a>

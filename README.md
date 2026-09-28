@@ -33,9 +33,9 @@
 
 ## 👋 About
 
-This is my personal developer portfolio built with **React**, **TailwindCSS**, and **Vite**. It highlights my journey as a Generative AI Engineer and Full Stack Developer — featuring my best projects, technical skills, and ways to get in touch.
+This is my personal developer portfolio built with **React**, **Tailwind CSS**, and **Vite**. It highlights my work building multi-agent, RAG, and LLM-powered applications with Python and FastAPI.
 
-🔗 **Live Site:** [your-portfolio-url.vercel.app](https://your-portfolio-url.vercel.app)
+🔗 **Live Site:** [portfolio-wine-five-kswrlzgwe1.vercel.app](https://portfolio-wine-five-kswrlzgwe1.vercel.app)
 
 ---
 
@@ -43,8 +43,11 @@ This is my personal developer portfolio built with **React**, **TailwindCSS**, a
 
 * **React** – Component-based UI
 * **Vite** – Fast dev server and build tool
-* **TailwindCSS** – Utility-first styling
-* **Lucide Icons** – Icon library
+* **Tailwind CSS** – Utility-first styling
+* **Lucide React** – Interface icons
+* **Python and FastAPI** – Backend and AI application development
+* **LangGraph, RAG, and MCP** – Agent orchestration and retrieval workflows
+* **PostgreSQL** – Relational data storage
 
 ---
 
@@ -63,12 +66,14 @@ This is my personal developer portfolio built with **React**, **TailwindCSS**, a
 
 | Project | Description | Stack |
 |---|---|---|
-| **ResearchAI** | Multi-agent AI research platform | LangGraph, Groq, FastAPI, Next.js |
+| **TripMate AI** | Multi-agent travel planner with live data and approval gates | FastAPI, LangGraph, Groq, PostgreSQL, MCP |
+| **CivicAI** | AI-powered municipal grievance and issue-tracking platform | FastAPI, React, Computer Vision, Multimodal AI |
+| **Cashora** | Personal finance analysis platform with an agentic AI assistant | Python, FastAPI, React, PostgreSQL, LangGraph, Groq |
+| **ResonoAI** | AI voice platform for text-to-speech and voice cloning | Next.js, TypeScript, PostgreSQL, Prisma, Docker, AWS, Cloudflare R2 |
 | **NeuraAI** | AI meeting assistant with multilingual transcription | Whisper, RAG, ChromaDB, Sarvam AI |
-| **ResonoAI** | AI voice platform with TTS and voice cloning | Next.js, PostgreSQL, Prisma, Cloudflare R2 |
-| **BugVault** | Developer bug & decision memory system | Next.js, PostgreSQL, Prisma |
-| **Taskora** | Task execution marketplace | MERN Stack |
-| **Hotel Booking** | Full-stack hotel booking platform | MERN Stack |
+| **Taskora** | Task execution marketplace | React, Tailwind CSS, Node.js, Express, MongoDB |
+| **Hotel Booking** | Full-stack hotel booking platform | React, Tailwind CSS, Node.js, Express, MongoDB |
+| **BugVault** | Developer bug and decision memory system | Next.js, PostgreSQL, Prisma |
 
 ---
 
@@ -82,8 +87,8 @@ This is my personal developer portfolio built with **React**, **TailwindCSS**, a
 ### Clone and Run
 
 ```bash
-git clone https://github.com/nitesh45176/your-portfolio-repo.git
-cd your-portfolio-repo
+git clone https://github.com/nitesh45176/portfolio.git
+cd portfolio
 npm install
 npm run dev
 ```
@@ -92,4 +97,4 @@ App runs at: [http://localhost:5173](http://localhost:5173)
 
 ### Add Your Resume
 
-Place your resume PDF at:
+Add the updated resume PDF as `public/resume.pdf`. The portfolio's Download Resume button serves this file from `/resume.pdf`.

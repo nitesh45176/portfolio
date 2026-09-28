@@ -1,12 +1,8 @@
 import {
-  Instagram,
+  Github,
   Linkedin,
   Mail,
-  MapPin,
-  Phone,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -38,7 +34,7 @@ export const ContactSection = () => {
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          I&apos;m always open to discussing new opportunities.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -56,38 +52,31 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:mishranitesh45176@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     mishranitesh45176@gmail.com
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Phone</h4>
-                  <a
-                    href="tel:+11234567890"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    +91 7982765889
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Karawal nagar, mukund vihar, Delhi-110090
-                  </a>
-                </div>
-              </div>
+              <a
+                href="https://github.com/nitesh45176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary"
+              >
+                <span className="rounded-full bg-primary/10 p-3"><Github className="h-6 w-6 text-primary" /></span>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nitesh45176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary"
+              >
+                <span className="rounded-full bg-primary/10 p-3"><Linkedin className="h-6 w-6 text-primary" /></span>
+                <span>LinkedIn</span>
+              </a>
             </div>
 
             <div className="pt-8">

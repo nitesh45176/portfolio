@@ -1,124 +1,49 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { projects } from "@/data/projects";
 
-const projects = [
-  
-  {
-    id: 1,
-    title: "ResearchAI",
-    description:
-      "Built a multi-agent AI research platform that autonomously searches, analyzes, and generates structured research reports using LangGraph, Tavily Search, and Groq LLMs.",
-    image: "/projects/researchai.png",
-    tags: [
-      "Python",
-      "FastAPI",
-      "LangChain",
-      "LangGraph",
-      "Groq",
-      "Tavily",
-      "Next.js",
-    ],
-    demoUrl: "https://multi-agent-system-puce-psi.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/ResearchAI",
-  },
-  {
-    id: 2,
-    title: "NeuraAI",
-    description:
-      "Developed an AI meeting assistant for multilingual transcription, summarization, action-item extraction, and RAG-based question answering over meeting transcripts.",
-    image: "/projects/neuraai.png",
-    tags: [
-      "Python",
-      "FastAPI",
-      "Whisper",
-      "Sarvam AI",
-      "ChromaDB",
-      "RAG",
-      "LLM APIs",
-    ],
-    demoUrl: "https://neura-ai-six.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/NeuraAI",
-  },
-  {
-    id: 3,
-    title: "ResonoAI",
-    description:
-      "Built a production-ready AI voice platform enabling text-to-speech and voice cloning with secure multi-tenant architecture and SaaS features.",
-    image: "/projects/Resono.png",
-    tags: [
-      "Nextjs",
-      "Typescript",
-      "PostgreSQL",
-      "PrismaORM",
-      "tRPC",
-      "Cloudfare R2",
-      "Clerk",
-    ],
-    demoUrl: "https://resonoai-production.up.railway.app/",
-    githubUrl: "https://github.com/nitesh45176/ResonoAI",
-  },
-  {
-    id: 4,
-    title: "BugVault",
-    description:
-      "BugVault is a developer memory system that helps track bugs, decisions, and their root causes to prevent knowledge loss over time",
-    image: "/projects/bugvault.png",
-    tags: ["Nextjs", "Typescript", "PostgreSQL", "PrismaORM"],
-    demoUrl: "https://bugvault.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/BugVault",
-  },
-  {
-    id: 5,
-    title: "Taskora",
-    description:
-      "A MERN-based task execution platform where users post tasks and runners complete them securely.",
-    image: "/projects/taskora.png",
-    tags: ["Reactjs", "Tailwindcss", "Nodejs", "Expressjs", "mongodb"],
-    demoUrl: "https://taskora-ygjk.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/Taskora",
-  },
-  {
-    id: 6,
-    title: "Hotel Booking Platform",
-    description:
-      "A full-stack hotel booking platform with JWT authentication, room management, and booking system.",
-    image: "/projects/HotelBooking.png",
-    tags: ["Reactjs", "Tailwindcss", "Nodejs", "Expressjs", "mongodb"],
-    demoUrl: "https://hotel-booking-beta-ochre.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/Hotel-booking",
-  },
-  {
-    id: 7,
-    title: "Expense Tracker",
-    description:
-      "A modern expense tracking application that helps users monitor their spending habits and manage their budget effectively...",
-    image: "/projects/Expense.png",
-    tags: ["Reactjs", "Tailwindcss", "Nodejs", "Expressjs", "mongodb"],
-    demoUrl: "https://expense-tracker-sigma-lime-14.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/Expense-Tracker",
-  },
-  {
-    id: 8,
-    title: "Virtual R",
-    description:
-      "A modern, responsive landing page for VR development tools built with React.js and Tailwind CSS. Features sleek dark theme design, smooth animations, and professional layout showcasing VR build tools for developers.",
-    image: "/projects/virtual.png",
-    tags: ["React", "tailwindcss"],
-    demoUrl: "https://virtual-r-beta-seven.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/virtualR",
-  },
-  {
-    id: 9,
-    title: "Vastuspaze",
-    description:
-      "Professional home renovation services landing page built with React.js and Tailwind CSS. Features clean, modern design with elegant typography, responsive layout, and compelling visual elements to showcase expert renovation and interior design services.",
-    image: "/projects/Vastu.png",
-    tags: ["React", "tailwindcss"],
-    demoUrl: "https://vastuspaze-steel.vercel.app/",
-    githubUrl: "https://github.com/nitesh45176/vastuspaze",
-  },
-];
+const renderProjectImage = (project, compact = false) => {
+  return (
+    <div className="relative h-full min-h-40 overflow-hidden bg-gradient-to-br from-primary/30 via-secondary to-primary/10">
+      <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+        <span className="text-xl font-semibold text-foreground/80">{project.title}</span>
+      </div>
+      {project.image && (
+        <img
+          src={project.image}
+          alt={`${project.title} project screenshot`}
+          className={`relative h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${compact ? "aspect-video" : ""}`}
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+      )}
+    </div>
+  );
+};
+
+const renderProjectLinks = (project) => (
+  <div className="flex flex-wrap gap-3">
+    <a
+      href={project.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cosmic-button inline-flex items-center gap-2"
+    >
+      Live Demo <ExternalLink size={16} />
+    </a>
+    <a
+      href={project.githubUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 font-medium transition-colors hover:border-primary hover:text-primary"
+    >
+      GitHub <Github size={16} />
+    </a>
+  </div>
+);
 
 export const ProjectsSection = () => {
+  const featuredProjects = projects.filter((project) => project.featured);
+  const moreProjects = projects.filter((project) => !project.featured);
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -128,57 +53,61 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+          A selection of AI products and backend systems built around useful,
+          real-world workflows.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        <div className="space-y-8">
+          {featuredProjects.map((project) => (
+            <article key={project.title} className="group grid overflow-hidden rounded-lg bg-card shadow-xs card-hover md:grid-cols-5">
+              <div className="min-h-56 overflow-hidden md:col-span-2">
+                {renderProjectImage(project)}
               </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
-                      {tag}
+              <div className="space-y-5 p-6 md:col-span-3 md:p-8">
+                <div>
+                  <h3 className="text-2xl font-semibold">{project.title}</h3>
+                  <p className="mt-1 text-primary">{project.tagline}</p>
+                </div>
+                <p className="text-muted-foreground">{project.description}</p>
+                <ul className="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                  {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((technology) => (
+                    <span key={technology} className="rounded-full border bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+                      {technology}
                     </span>
                   ))}
                 </div>
-
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
-                </div>
+                {renderProjectLinks(project)}
               </div>
-            </div>
+            </article>
+          ))}
+        </div>
+
+        <h3 className="mt-16 mb-6 text-2xl font-semibold">More Projects</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {moreProjects.map((project) => (
+            <article key={project.title} className="group overflow-hidden rounded-lg bg-card shadow-xs card-hover">
+              <div className="h-44 overflow-hidden">
+                {renderProjectImage(project, true)}
+              </div>
+              <div className="space-y-4 p-5">
+                <div>
+                  <h4 className="text-xl font-semibold">{project.title}</h4>
+                  <p className="text-sm text-primary">{project.tagline}</p>
+                </div>
+                <p className="text-sm text-muted-foreground">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((technology) => (
+                    <span key={technology} className="rounded-full border bg-secondary px-2.5 py-1 text-xs text-secondary-foreground">
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+                {renderProjectLinks(project)}
+              </div>
+            </article>
           ))}
         </div>
 
@@ -186,6 +115,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/nitesh45176"
           >
             Check My Github <ArrowRight size={16} />
