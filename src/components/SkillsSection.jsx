@@ -1,32 +1,92 @@
+import {
+  BrainCircuit,
+  CloudCog,
+  Code2,
+  Database,
+  PanelsTopLeft,
+  Server,
+} from "lucide-react";
+
 const skillGroups = [
-  { category: "Languages", skills: ["Python", "C++", "JavaScript", "TypeScript"] },
-  { category: "AI/GenAI", skills: ["LLMs", "RAG", "LangChain", "LangGraph", "AI Agents", "MCP", "Vector Databases", "Computer Vision"] },
-  { category: "Backend", skills: ["FastAPI", "Node.js", "REST APIs", "SQLAlchemy", "Alembic"] },
-  { category: "Frontend", skills: ["Next.js", "React.js", "Tailwind CSS"] },
-  { category: "Databases", skills: ["PostgreSQL", "MongoDB"] },
-  { category: "Cloud & DevOps", skills: ["Docker", "AWS EC2", "Nginx", "GitHub Actions", "Linux"] },
+  {
+    category: "AI & intelligent systems",
+    index: "01",
+    icon: BrainCircuit,
+    skills: ["LLMs", "RAG", "LangChain", "LangGraph", "AI Agents", "MCP", "Vector Databases", "Computer Vision"],
+  },
+  {
+    category: "Backend & APIs",
+    index: "02",
+    icon: Server,
+    skills: ["Python", "FastAPI", "Node.js", "REST APIs", "SQLAlchemy", "Alembic", "Express"],
+  },
+  {
+    category: "Frontend",
+    index: "03",
+    icon: PanelsTopLeft,
+    skills: ["JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS"],
+  },
+  {
+    category: "Data",
+    index: "04",
+    icon: Database,
+    skills: ["PostgreSQL", "MongoDB"],
+  },
+  {
+    category: "Infrastructure",
+    index: "05",
+    icon: CloudCog,
+    skills: ["Docker", "AWS EC2", "Nginx", "GitHub Actions", "Linux", "Git"],
+  },
+  {
+    category: "Languages",
+    index: "06",
+    icon: Code2,
+    skills: ["Python", "C++", "JavaScript", "TypeScript"],
+  },
 ];
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary">Skills</span>
-        </h2>
+    <section id="skills" className="section skills-section">
+      <div className="page-width">
+        <div className="skills-intro" data-reveal>
+          <div className="section-heading">
+            <p className="eyebrow section-kicker"><span>03</span> / THE TOOLKIT</p>
+            <h2>
+              Built from
+              <br />
+              <span className="text-muted">good tools.</span>
+            </h2>
+          </div>
+          <p>
+            A practical toolkit for moving from an idea to a reliable,
+            production-minded application.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skillGroups.map((group) => (
-            <div key={group.category} className="bg-card p-6 rounded-lg shadow-md card-hover">
-              <h3 className="font-semibold text-lg mb-4">{group.category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span key={skill} className="px-3 py-1.5 text-sm border rounded-full bg-secondary text-secondary-foreground">
-                    {skill}
-                  </span>
+        <div className="skill-groups">
+          {skillGroups.map(({ category, index, icon: Icon, skills }, cardIndex) => (
+            <article
+              className="skill-group"
+              key={index}
+              data-reveal
+              data-cursor="STACK"
+              style={{ "--skill-order": cardIndex }}
+            >
+              <div className="skill-group-heading">
+                <span className="eyebrow">{index}</span>
+                <span className="skill-icon" aria-hidden="true">
+                  <Icon size={19} strokeWidth={1.7} />
+                </span>
+                <h3>{category}</h3>
+              </div>
+              <div className="skill-list">
+                {skills.map((skill) => (
+                  <span className="skill-label" key={skill}>{skill}</span>
                 ))}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

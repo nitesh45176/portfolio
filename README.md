@@ -64,16 +64,19 @@ This is my personal developer portfolio built with **React**, **Tailwind CSS**, 
 
 ## 🖼️ Projects Showcased
 
-| Project | Description | Stack |
-|---|---|---|
-| **TripMate AI** | Multi-agent travel planner with live data and approval gates | FastAPI, LangGraph, Groq, PostgreSQL, MCP |
-| **CivicAI** | AI-powered municipal grievance and issue-tracking platform | FastAPI, React, Computer Vision, Multimodal AI |
-| **Cashora** | Personal finance analysis platform with an agentic AI assistant | Python, FastAPI, React, PostgreSQL, LangGraph, Groq |
-| **ResonoAI** | AI voice platform for text-to-speech and voice cloning | Next.js, TypeScript, PostgreSQL, Prisma, Docker, AWS, Cloudflare R2 |
-| **NeuraAI** | AI meeting assistant with multilingual transcription | Whisper, RAG, ChromaDB, Sarvam AI |
-| **Taskora** | Task execution marketplace | React, Tailwind CSS, Node.js, Express, MongoDB |
-| **Hotel Booking** | Full-stack hotel booking platform | React, Tailwind CSS, Node.js, Express, MongoDB |
-| **BugVault** | Developer bug and decision memory system | Next.js, PostgreSQL, Prisma |
+| Project | Category | Description | Stack |
+|---|---|---|---|
+| **TripMate AI** | AI, AI/ML | Multi-agent travel planner with live data and approval gates | FastAPI, LangGraph, Groq, PostgreSQL, MCP |
+| **CivicAI** | AI, AI/ML | AI-powered municipal grievance and issue-tracking platform | FastAPI, React, Computer Vision, Multimodal AI |
+| **Credit Risk Prediction** | Machine Learning | Estimates loan-default probability from applicant and loan details; applies a saved threshold for high/low risk and includes notebook model comparison and SHAP analysis | Python, scikit-learn, XGBoost, SHAP, FastAPI |
+| **Cashora** | AI, AI/ML | Personal finance analysis platform with an agentic AI assistant | Python, FastAPI, React, PostgreSQL, LangGraph, Groq |
+| **ResonoAI** | AI, Full Stack | AI voice platform for text-to-speech and voice cloning | Next.js, TypeScript, PostgreSQL, Prisma, Docker, AWS |
+| **NeuraAI** | AI | AI meeting assistant with multilingual transcription | Whisper, RAG, ChromaDB, Sarvam AI |
+| **Taskora** | Full Stack | Task execution marketplace | React, Tailwind CSS, Node.js, Express, MongoDB |
+| **Hotel Booking** | Full Stack | Full-stack hotel booking platform | React, Tailwind CSS, Node.js, Express, MongoDB |
+| **BugVault** | Full Stack | Developer bug and decision memory system | Next.js, PostgreSQL, Prisma |
+| **Customer Churn Prediction** | Machine Learning | Predicts churn from customer account and service details, returning a classification, probability, and risk band using saved model artifacts | Python, FastAPI, React, TypeScript, scikit-learn |
+| **Food Delivery Time Prediction** | Machine Learning | Returns a delivery-time estimate in minutes from rider, route, order, traffic, weather, and vehicle details using a scaled XGBoost regressor | Python, FastAPI, React, scikit-learn, XGBoost |
 
 ---
 

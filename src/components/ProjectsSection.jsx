@@ -1,124 +1,164 @@
+import { useState } from "react";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { projects } from "@/data/projects";
+import { projectCategories, projects } from "@/data/projects";
 
-const renderProjectImage = (project, compact = false) => {
-  return (
-    <div className="relative h-full min-h-40 overflow-hidden bg-gradient-to-br from-primary/30 via-secondary to-primary/10">
-      <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-        <span className="text-xl font-semibold text-foreground/80">{project.title}</span>
-      </div>
-      {project.image && (
-        <img
-          src={project.image}
-          alt={`${project.title} project screenshot`}
-          className={`relative h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${compact ? "aspect-video" : ""}`}
-          onError={(event) => { event.currentTarget.style.display = "none"; }}
-        />
-      )}
-    </div>
-  );
-};
+const filters = ["All Projects", ...projectCategories];
 
 const renderProjectLinks = (project) => (
-  <div className="flex flex-wrap gap-3">
-    <a
-      href={project.liveUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="cosmic-button inline-flex items-center gap-2"
-    >
-      Live Demo <ExternalLink size={16} />
-    </a>
-    <a
-      href={project.githubUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 font-medium transition-colors hover:border-primary hover:text-primary"
-    >
-      GitHub <Github size={16} />
-    </a>
+  <div className="project-links">
+    {project.liveUrl && (
+      <a className="project-action project-action-live" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+        Live Demo <ExternalLink size={15} aria-hidden="true" />
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    )}
+    {project.githubUrl && (
+      <a className="project-action project-action-github" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+        GitHub <Github size={15} aria-hidden="true" />
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    )}
   </div>
 );
 
+const renderProjectCard = (project, index) => (
+  <article
+    key={project.id}
+    className={`project-card${project.featured ? " project-card-featured" : ""}`}
+    style={{ "--card-index": index }}
+  >
+    {project.image ? (
+      <div className={`project-card-visual${project.imageFit === "contain" ? " project-card-visual-screenshot" : ""}`}>
+        <picture>
+          {project.imageWidths && (
+            <source
+              type="image/webp"
+              srcSet={project.imageWidths
+                .map((width) => `${project.image.replace(/\.png$/i, `-${width}.webp`)} ${width}w`)
+                .join(", ")}
+              sizes="(max-width: 680px) calc(100vw - 40px), (max-width: 960px) 50vw, 33vw"
+            />
+          )}
+          <img
+            src={project.image}
+            alt={`${project.name} interface screenshot`}
+            loading="lazy"
+            decoding="async"
+            width={project.imageWidth || 1200}
+            height={project.imageHeight || 600}
+          />
+        </picture>
+        <span className="project-image-index eyebrow" aria-hidden="true">
+          PROJECT / {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+    ) : (
+      <div className="project-card-visual project-card-visual-empty" aria-hidden="true">
+        <span className="eyebrow">PROJECT / {String(index + 1).padStart(2, "0")}</span>
+      </div>
+    )}
+
+    <div className="project-card-content">
+      <div className="project-card-meta">
+        <p className="eyebrow project-number">SELECTED WORK / {String(index + 1).padStart(2, "0")}</p>
+        {project.featured && <span className="project-featured-label">Featured</span>}
+      </div>
+      <h3>{project.name}</h3>
+      <p className="project-tagline">{project.tagline}</p>
+      <p className="project-description">{project.description}</p>
+      {project.bullets.length > 0 && (
+        <ul className="project-bullets">
+          {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+        </ul>
+      )}
+      <div className="project-category-list" aria-label={`${project.name} categories`}>
+        {project.categories.map((category) => (
+          <span className="project-category-badge" key={category}>{category}</span>
+        ))}
+      </div>
+      <div className="tag-list project-technology-list" aria-label={`${project.name} technologies`}>
+        {project.technologies.map((technology) => (
+          <span className="tech-tag" key={technology}>{technology}</span>
+        ))}
+      </div>
+      {renderProjectLinks(project)}
+    </div>
+  </article>
+);
+
 export const ProjectsSection = () => {
-  const featuredProjects = projects.filter((project) => project.featured);
-  const moreProjects = projects.filter((project) => !project.featured);
+  const [activeCategory, setActiveCategory] = useState("All Projects");
+  const visibleProjects = projects
+    .filter((project) => (
+      activeCategory === "All Projects" || project.categories.includes(activeCategory)
+    ))
+    .sort((first, second) => Number(Boolean(second.featured)) - Number(Boolean(first.featured)));
 
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
-          Featured <span className="text-primary"> Projects </span>
-        </h2>
+    <section id="projects" className="section projects-section">
+      <div className="page-width">
+        <div className="projects-heading" data-reveal>
+          <div className="section-heading">
+            <p className="eyebrow section-kicker"><span>04</span> / SELECTED WORK</p>
+            <h2>
+              Ideas in
+              <br />
+              <span className="text-muted">the real world.</span>
+            </h2>
+          </div>
+          <p>
+            AI products, machine learning experiments, and full-stack systems
+            shaped around useful, real-world workflows.
+          </p>
+        </div>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of AI products and backend systems built around useful,
-          real-world workflows.
+        <nav className="project-filters" aria-label="Filter projects by category">
+          {filters.map((filter) => {
+            const count = filter === "All Projects"
+              ? projects.length
+              : projects.filter((project) => project.categories.includes(filter)).length;
+
+            return (
+              <button
+                className="project-filter"
+                type="button"
+                key={filter}
+                aria-pressed={activeCategory === filter}
+                aria-controls="project-grid"
+                onClick={() => setActiveCategory(filter)}
+              >
+                {filter}
+                <span className="project-filter-count" aria-hidden="true">{count}</span>
+              </button>
+            );
+          })}
+        </nav>
+
+        <p className="project-results-count" aria-live="polite" aria-atomic="true">
+          Showing {visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"}
+          {activeCategory !== "All Projects" && ` in ${activeCategory}`}
         </p>
 
-        <div className="space-y-8">
-          {featuredProjects.map((project) => (
-            <article key={project.title} className="group grid overflow-hidden rounded-lg bg-card shadow-xs card-hover md:grid-cols-5">
-              <div className="min-h-56 overflow-hidden md:col-span-2">
-                {renderProjectImage(project)}
-              </div>
-              <div className="space-y-5 p-6 md:col-span-3 md:p-8">
-                <div>
-                  <h3 className="text-2xl font-semibold">{project.title}</h3>
-                  <p className="mt-1 text-primary">{project.tagline}</p>
-                </div>
-                <p className="text-muted-foreground">{project.description}</p>
-                <ul className="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
-                  {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((technology) => (
-                    <span key={technology} className="rounded-full border bg-secondary px-3 py-1 text-xs text-secondary-foreground">
-                      {technology}
-                    </span>
-                  ))}
-                </div>
-                {renderProjectLinks(project)}
-              </div>
-            </article>
-          ))}
-        </div>
+        {visibleProjects.length > 0 ? (
+          <div className="project-grid" id="project-grid" key={activeCategory}>
+            {visibleProjects.map(renderProjectCard)}
+          </div>
+        ) : (
+          <p className="project-empty-state" role="status">
+            No projects in this category yet. Check back soon.
+          </p>
+        )}
 
-        <h3 className="mt-16 mb-6 text-2xl font-semibold">More Projects</h3>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {moreProjects.map((project) => (
-            <article key={project.title} className="group overflow-hidden rounded-lg bg-card shadow-xs card-hover">
-              <div className="h-44 overflow-hidden">
-                {renderProjectImage(project, true)}
-              </div>
-              <div className="space-y-4 p-5">
-                <div>
-                  <h4 className="text-xl font-semibold">{project.title}</h4>
-                  <p className="text-sm text-primary">{project.tagline}</p>
-                </div>
-                <p className="text-sm text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((technology) => (
-                    <span key={technology} className="rounded-full border bg-secondary px-2.5 py-1 text-xs text-secondary-foreground">
-                      {technology}
-                    </span>
-                  ))}
-                </div>
-                {renderProjectLinks(project)}
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
+        <div className="projects-footer">
+          <p className="eyebrow">MORE EXPERIMENTS &amp; BUILDS</p>
           <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="text-link"
+            href="https://github.com/nitesh45176"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/nitesh45176"
           >
-            Check My Github <ArrowRight size={16} />
+            Browse GitHub <ArrowRight size={15} aria-hidden="true" />
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
       </div>

@@ -1,98 +1,116 @@
-import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "@/components/ThemeToggle"; // ✅ import your toggle
 
 const navItems = [
-  { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Work", href: "#projects" },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const sentinel = document.querySelector(".scroll-sentinel");
+    if (!sentinel || !("IntersectionObserver" in window)) return undefined;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsScrolled(!entry.isIntersecting),
+      { rootMargin: "-16px 0px 0px 0px", threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const sections = navItems
+      .map(({ href }) => document.querySelector(href))
+      .filter(Boolean);
+
+    if (!("IntersectionObserver" in window)) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((first, second) => second.intersectionRatio - first.intersectionRatio);
+
+        if (visibleSections[0]) setActiveSection(visibleSections[0].target.id);
+      },
+      { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Nitesh&apos;s </span>{" "}
-            Portfolio
-          </span>
+    <header className={`site-header${isScrolled ? " is-scrolled" : ""}`}>
+      <nav className="nav-inner page-width" aria-label="Main navigation">
+        <a className="nav-brand" href="#hero" onClick={closeMenu}>
+          Nitesh Kumar Mishra<span>.</span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item, key) => (
+        <div className="nav-links">
+          {navItems.map((item) => (
             <a
-              key={key}
+              key={item.href}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className={activeSection === item.href.slice(1) ? "is-active" : ""}
+              aria-current={activeSection === item.href.slice(1) ? "location" : undefined}
             >
               {item.name}
             </a>
           ))}
-          {/* ✅ Desktop Theme Toggle */}
-          <ThemeToggle />
+          <a className="nav-contact" href="#contact">
+            Let&apos;s talk <span aria-hidden="true">↗</span>
+          </a>
         </div>
 
-        {/* mobile nav button */}
         <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          className="nav-menu-button"
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
+      </nav>
 
-        {/* mobile nav menu */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
+      <div
+        id="mobile-navigation"
+        className={`mobile-navigation${isMenuOpen ? " is-open" : ""}`}
+        aria-hidden={!isMenuOpen}
+      >
+        {navItems.map((item, index) => (
+          <a
+            key={item.href}
+            href={item.href}
+            tabIndex={isMenuOpen ? 0 : -1}
+            onClick={closeMenu}
+            style={{ "--nav-index": index }}
+          >
+            <span className="eyebrow">0{index + 1}</span>
+            {item.name}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          tabIndex={isMenuOpen ? 0 : -1}
+          onClick={closeMenu}
+          style={{ "--nav-index": navItems.length }}
         >
-          <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            {/* ✅ Mobile Theme Toggle inside menu */}
-            <ThemeToggle />
-          </div>
-        </div>
+          <span className="eyebrow">05</span>
+          Contact
+        </a>
       </div>
-    </nav>
+    </header>
   );
 };

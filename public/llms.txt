@@ -1,0 +1,32 @@
+# Nitesh Kumar Mishra
+
+> Generative AI Engineer, Backend Engineer, and Software Developer focused on agentic systems, RAG, LLM applications, and practical software engineering.
+
+## Profile
+
+Nitesh Kumar Mishra builds multi-agent and LLM-powered applications, reliable APIs, and data workflows. His work spans agent orchestration, retrieval-augmented generation, computer vision, backend engineering, and thoughtful user experiences.
+
+## Portfolio
+
+- [Portfolio homepage](https://portfolio-wine-five-kswrlzgwe1.vercel.app/)
+- [Selected projects](https://portfolio-wine-five-kswrlzgwe1.vercel.app/#projects)
+- [Experience](https://portfolio-wine-five-kswrlzgwe1.vercel.app/#experience)
+- [Skills](https://portfolio-wine-five-kswrlzgwe1.vercel.app/#skills)
+- [Resume](https://portfolio-wine-five-kswrlzgwe1.vercel.app/resume/NITESH_CV_AI.pdf)
+
+## Selected projects
+
+- [TripMate AI](https://tripmate-ai-j9uw.onrender.com/) — multi-agent travel planner.
+- [CivicAI](https://civic-ai-tech.vercel.app/) — AI-powered municipal grievance platform.
+- [Cashora](https://cashora-ai.vercel.app/) — personal finance platform with an agentic assistant.
+- [ResonoAI](https://resono-ai.vercel.app/) — AI voice platform.
+- [NeuraAI](https://neura-ai-six.vercel.app/) — AI meeting assistant.
+- [Taskora](https://taskora-ygjk.vercel.app/) — task execution marketplace.
+- [Hotel Booking](https://hotel-booking-beta-ochre.vercel.app/) — hotel booking application.
+- [BugVault](https://bugvault.vercel.app/) — developer bug and decision memory system.
+
+## Contact
+
+- Email: [mishranitesh45176@gmail.com](mailto:mishranitesh45176@gmail.com)
+- [GitHub](https://github.com/nitesh45176)
+- [LinkedIn](https://www.linkedin.com/in/nitesh45176)
